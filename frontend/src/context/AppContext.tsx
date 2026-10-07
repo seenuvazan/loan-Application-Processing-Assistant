@@ -698,4 +698,4 @@ export const useApp = () => {
   return context;
 };
 
-// AppContext hydration configured
+// Context dispatchers streamlined
