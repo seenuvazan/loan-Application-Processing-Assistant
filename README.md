@@ -48,3 +48,43 @@ In retail personal loan operations across Indian banks and NBFCs, branch officer
 ---
 
 ## 👥 Hierarchy & Maker-Checker Workflow (Four-Eyes Enforcement)
+
+The top header includes an interactive role switcher demonstrating institutional maker-checker separation:
+
+```
+[ L1 Intake Officer (Maker) ] ──▶ [ L2 Verifier (Checker) ] ──▶ [ Ready for Underwriting ]
+          │                                  ▲
+          │ (Escalations / Discrepancies)    │ (Resolved)
+          ▼                                  │
+[ L3 Senior Reviewer (Mandatory Written Reason) ]
+```
+
+1. **L1 Intake Officer (Maker)**:
+   - Corrects application data, adjusts document statuses, drafts follow-ups, and submits for verification.
+   - Status transitions: `Draft` ➔ `Follow-up sent` ➔ `Pending verification`.
+2. **L2 Verifier (Checker)**:
+   - **Four-Eyes Enforcement**: Verifier **CANNOT** be the same person who prepared/submitted the case as Maker. If the same user attempts verification, the system blocks the action with a clear policy alert.
+   - Status transition: `Pending verification` ➔ `Verified`.
+3. **L3 Senior Reviewer**:
+   - Handles escalations (e.g., 2+ inconsistency types, repeated employer/income mismatches).
+   - Override requires a **mandatory written justification** (minimum 10 characters) recorded in the audit log.
+4. **Auditor (Read-Only)**:
+   - Read-only inspection across the entire intake queue, audit trails, and validation evidence without mutation permissions.
+5. **Append-Only Audit Log**:
+   - Immutable chronological event stream tracking: `Timestamp`, `User Name`, `Role`, `Action Taken`, `Details`, and `Status Changes`. Exportable as CSV per case.
+
+---
+
+## 🧪 Synthetic Data & Validation Evidence (25 Cases)
+
+The application includes 25 diverse synthetic Indian loan profiles representing edge cases:
+
+1. `APP-IND-1001`: Fully compliant salaried applicant (0 findings)
+2. `APP-IND-1002`: Missing physical PAN document (`MISS_DOC_PAN`)
+3. `APP-IND-1003`: Missing income proof for salaried applicant (`MISS_DOC_INCOME_SALARIED`)
+4. `APP-IND-1004`: Missing bank statement (`MISS_DOC_BANK_STMT`)
+5. `APP-IND-1005`: Invalid PAN pattern `ABC123456F` (`PAN_FORMAT_INVALID`)
+6. `APP-IND-1006`: Invalid mobile number `44556677` (`MOBILE_FORMAT_INVALID`)
+7. `APP-IND-1007`: PAN name mismatch (`PAN_NAME_MISMATCH`)
+8. `APP-IND-1008`: Declared income vs salary slip mismatch (>10% variance, `INCOME_MISMATCH`)
+9. `APP-IND-1009`: Declared employer vs document employer mismatch (`EMPLOYER_MISMATCH`)
