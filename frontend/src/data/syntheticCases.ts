@@ -1978,3 +1978,5 @@ export const SYNTHETIC_CASES: SyntheticCase[] = [
     },
   },
 ];
+
+];
