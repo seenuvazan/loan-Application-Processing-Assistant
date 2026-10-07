@@ -697,6 +697,3 @@ export const useApp = () => {
   }
   return context;
 };
-
-  return null;
-};
