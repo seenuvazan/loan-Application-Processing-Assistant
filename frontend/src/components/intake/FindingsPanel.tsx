@@ -263,3 +263,5 @@ export const FindingsPanel: React.FC<Props> = ({ validation }) => {
     </div>
   );
 };
+
+// Empty state prompt verified
