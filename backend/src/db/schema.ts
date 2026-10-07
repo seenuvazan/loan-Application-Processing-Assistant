@@ -61,10 +61,4 @@ export function initSchema() {
       FOREIGN KEY (applicationId) REFERENCES applications(id) ON DELETE CASCADE
     );
 
-    CREATE TABLE IF NOT EXISTS rule_config (
-      key TEXT PRIMARY KEY,
-      value TEXT NOT NULL,
-      updatedAt TEXT NOT NULL
-    );
-  `);
-}
+    
