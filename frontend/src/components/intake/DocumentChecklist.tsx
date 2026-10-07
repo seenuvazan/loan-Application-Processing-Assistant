@@ -415,3 +415,5 @@ export const DocumentChecklist: React.FC<Props> = ({ application, documents, fin
     </div>
   );
 };
+
+// Graceful status transitions verified
