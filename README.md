@@ -128,3 +128,33 @@ Accessible via the top navigation bar as a distinct mode with a dedicated discla
     $$P = \frac{\text{EMI} \times ((1+r)^n - 1)}{r \times (1+r)^n}$$
   - Clearly articulates assumptions and disclaimers.
 
+---
+
+## 🚀 Quick Start & Local Execution
+
+The entire application runs locally in the browser:
+
+```bash
+# Navigate to frontend
+cd frontend
+
+# Install dependencies
+npm install
+
+# Run automated unit tests
+npm test
+
+# Start the Vite development server
+npm run dev
+```
+
+Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
+
+---
+
+## 🎬 5-Step Demo Script for Evaluators
+
+1. **Step 1: Inspect Case Queue & India-Specific KYC Validation**
+   - Click case **`APP-IND-1001`**: Observe 100% completeness and 0 findings for a compliant salaried file.
+   - Click case **`APP-IND-1007`**: Observe the **Inconsistency finding** (`PAN_NAME_MISMATCH`) highlighting that the application name differs from the name on the PAN document.
+2. **Step 2: Live Re-Validation & Data Correction**
