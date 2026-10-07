@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EMI Calculator</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../static/emi.jpg');
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+  }
+
+  .form-container {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 14px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    color: #333;
+  }
+
+  label {
+    display: block;
+    margin-bottom: 12px;
+    font-weight: bold;
+  }
+
+  input {
+    width: 95%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  button {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #emi-result {
+    margin-top: 15px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  .text-form {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px;
+    margin: 0 auto;
+  }
+
+  img.image {
+    display: none; /* Hide the image in the form */
+  }
+</style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>EMI Calculator</h2>
+    <label for="loan-amount" style="text-align: left;">Loan Amount:</label>
+    <input type="number" id="loan-amount" required>
+    <label for="loan-term" style="text-align: left;">Loan Term (months):</label>
+    <input type="number" id="loan-term" required>
+    <button type="button" onclick="calculateEMI()">Calculate EMI</button>
+    <div id="emi-result"></div>
+  </div>
+
+  <script>
+    function calculateEMI() {
+      const loanAmount = parseFloat(document.getElementById("loan-amount").value);
+      const loanTerm = parseFloat(document.getElementById("loan-term").value);
+      const fixedInterestRate = 0.10; // 10%
+
+      const monthlyInterest = fixedInterestRate / 12;
+      const emi = (loanAmount * monthlyInterest * Math.pow(1 + monthlyInterest, loanTerm)) / (Math.pow(1 + monthlyInterest, loanTerm) - 1);
+      const totalPayment = emi * loanTerm;
+      const totalInterest = totalPayment - loanAmount;
+
+      const resultElement = document.getElementById("emi-result");
+      resultElement.innerHTML = `
+        <p>Total Interest Amount: ${Math.round(totalInterest)}</p>
+        <p>Your Pay every Month: ${Math.round(emi)}</p>
+        <p>Total Payment (Loan Amount + Interest): ${Math.round(totalPayment)}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
