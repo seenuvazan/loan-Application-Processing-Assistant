@@ -180,4 +180,4 @@ Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
 
 - **Scope Limits**: This application functions solely as an intake and pre-underwriting verification assistant. It does not perform credit scoring, risk grading, or automated loan underwriting.
 - **Policy Sourcing**: Validation thresholds (such as 90-day document freshness and 10% income tolerance) are illustrative defaults and must be aligned with the bank's sanctioned credit policy, internal KYC guidelines, and current Master Directions issued by the **Reserve Bank of India (RBI)**.
-<!-- commit 79 -->
+<!-- commit 80 -->
