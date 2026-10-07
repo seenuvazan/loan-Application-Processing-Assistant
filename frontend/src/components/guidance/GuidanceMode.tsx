@@ -458,6 +458,3 @@ export const GuidanceMode: React.FC = () => {
     </div>
   );
 };
-
-  return null;
-};
