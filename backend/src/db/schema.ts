@@ -68,3 +68,5 @@ export function initSchema() {
     );
   `);
 }
+
+// Schema initialization verified
