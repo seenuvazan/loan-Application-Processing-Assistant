@@ -88,3 +88,43 @@ The application includes 25 diverse synthetic Indian loan profiles representing 
 7. `APP-IND-1007`: PAN name mismatch (`PAN_NAME_MISMATCH`)
 8. `APP-IND-1008`: Declared income vs salary slip mismatch (>10% variance, `INCOME_MISMATCH`)
 9. `APP-IND-1009`: Declared employer vs document employer mismatch (`EMPLOYER_MISMATCH`)
+10. `APP-IND-1010`: Stale salary slip >90 days old (`DOCUMENT_STALE_Income_Proof`)
+11. `APP-IND-1011`: Bank statement duration deficit (3 months instead of 6, `STATEMENT_PERIOD_DEFICIT`)
+12. `APP-IND-1012`: Bank statement transaction date gap flagged (`STATEMENT_GAP_DETECTED`)
+13. `APP-IND-1013`: Fully compliant self-employed applicant with ITR (0 findings)
+14. `APP-IND-1014`: Self-employed missing ITR (`MISS_DOC_INCOME_SELF_EMP`)
+15. `APP-IND-1015`: Missing requested loan amount (`MANDATORY_FIELD_AMOUNT`)
+16. `APP-IND-1016`: Missing loan purpose (`MANDATORY_FIELD_PURPOSE`)
+17. `APP-IND-1017`: Requested amount out of bounds (`AMOUNT_OUT_OF_BOUNDS`)
+18. `APP-IND-1018`: Stale utility bill address proof (`DOCUMENT_STALE_Address_Proof`)
+19. `APP-IND-1019`: Blurry/unclear salary slip (`DOC_UNCLEAR_Income_Proof`)
+20. `APP-IND-1020`: Aadhaar unmasked 12 digits violation (`AADHAAR_UNMASKED_VIOLATION`)
+21. `APP-IND-1021`: Future employment start date (`EMPLOYMENT_DATE_FUTURE`)
+22. `APP-IND-1022`: Combined missing bank statement + income mismatch (2 findings)
+23. `APP-IND-1023`: Combined malformed PAN + invalid mobile + name mismatch (3 findings)
+24. `APP-IND-1024`: Combined missing ITR + stale bank statement (2 findings)
+25. `APP-IND-1025`: Borderline income variance within 10% tolerance (0 findings)
+
+### Automated Test Verification:
+Run the Vitest test suite directly:
+```bash
+npm test
+```
+All **26 tests** (25 synthetic cases + guardrail non-decision test) pass with **100% match accuracy**.
+
+---
+
+## 🧭 Guidance Mode (Customer Planning Aid)
+
+Accessible via the top navigation bar as a distinct mode with a dedicated disclaimer:
+> *"Indicative only. Not an offer or decision. The lender decides."*
+
+- **Need Profile Input**: Purpose, employment type, monthly in-hand income, existing debt EMIs, amount needed, and repayment tenure.
+- **Purpose-to-Category Mapper**: Explains suitable loan types (Personal Loan, Home Renovation, Education Loan, Auto Loan, MSME Loan, Gold Loan, Loan against FD) with **Secured vs Unsecured** classification and typical document checklists.
+- **Illustrative Affordability Estimation**:
+  - Calculates comfortable monthly EMI capacity using user-editable FOIR cap (default 45%):
+    $$\text{Affordable EMI} = (\text{Income} \times \text{FOIR Cap}) - \text{Existing EMIs}$$
+  - Computes illustrative principal capacity via reducing-balance annuity formula at sample rate:
+    $$P = \frac{\text{EMI} \times ((1+r)^n - 1)}{r \times (1+r)^n}$$
+  - Clearly articulates assumptions and disclaimers.
+
