@@ -1,0 +1,65 @@
+{
+  "R1": {
+    "id": "R1",
+    "name": "Mandatory Fields Present",
+    "category": "Missing Field",
+    "mandatoryFields": [
+      "applicantName",
+      "requestedAmount",
+      "loanPurpose",
+      "employmentType",
+      "declaredEmployer",
+      "declaredMonthlyIncome",
+      "applicationDate",
+      "employmentStartDate",
+      "contactEmail",
+      "contactPhone",
+      "maskedAccountNumber"
+    ]
+  },
+  "R2": {
+    "id": "R2",
+    "name": "All Documents Present",
+    "category": "Missing Document",
+    "requiredDocuments": ["Identity", "Address", "Income", "BankStatement"]
+  },
+  "R3": {
+    "id": "R3",
+    "name": "Requested Amount Within Configured Bounds",
+    "category": "Inconsistency",
+    "minAmount": 50000,
+    "maxAmount": 2000000,
+    "currency": "INR"
+  },
+  "R4": {
+    "id": "R4",
+    "name": "Declared Employer vs Employer on Income Document",
+    "category": "Inconsistency"
+  },
+  "R5": {
+    "id": "R5",
+    "name": "Declared Income vs Income on Document",
+    "category": "Inconsistency",
+    "tolerancePercent": 5
+  },
+  "R6": {
+    "id": "R6",
+    "name": "Document Date Checks",
+    "category": "Inconsistency",
+    "docFreshnessMonths": 3,
+    "bankStatementMinMonths": 3
+  },
+  "R7": {
+    "id": "R7",
+    "name": "Requested Amount vs Notes Amount",
+    "category": "Inconsistency"
+  },
+  "R8": {
+    "id": "R8",
+    "name": "Format Validation",
+    "category": "Format",
+    "emailPattern": "^[^@\\s]+@[^@\\s]+\\.[^@\\s]+$",
+    "phonePattern": "^[6-9]\\d{9}$",
+    "accountPattern": "^X+\\d{4}$"
+  }
+}
