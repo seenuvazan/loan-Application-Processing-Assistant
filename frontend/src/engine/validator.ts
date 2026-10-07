@@ -418,5 +418,3 @@ function getCutoffDate(baseDateStr: string, days: number): string {
     return 'valid period';
   }
 }
-
-// Memoization and performance optimizations applied

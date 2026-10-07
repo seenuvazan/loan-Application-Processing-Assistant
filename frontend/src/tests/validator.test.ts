@@ -40,5 +40,3 @@ describe('LoanIntake Validator Engine - 25 Synthetic Test Suite', () => {
     });
   });
 });
-
-// Test suite verification passed

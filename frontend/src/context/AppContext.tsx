@@ -697,5 +697,3 @@ export const useApp = () => {
   }
   return context;
 };
-
-// Context dispatchers streamlined
