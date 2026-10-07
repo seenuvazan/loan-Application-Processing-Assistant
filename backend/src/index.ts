@@ -51,5 +51,22 @@ app.put('/api/rules', (req, res) => {
   res.json({ success: true, overrides });
 });
 
+app.get('/api/health', (_req, res) => {
+  res.json({ status: 'ok', timestamp: new Date().toISOString() });
+});
+
+// Guardrail scan endpoint
+app.post('/api/guardrail/scan', (req, res) => {
+  const { scanForForbiddenTerms } = require('./guardrail');
+  const { text } = req.body;
+  if (!text) return res.status(400).json({ error: 'text required' });
+  const result = scanForForbiddenTerms(text);
+  res.json(result);
+});
+
+app.listen(PORT, () => {
+  console.log(`🏦 LoanIntake Assistant Backend running on http://localhost:${PORT}`);
+  console.log(`📋 ${EXPECTED_VALIDATIONS.length} seeded applications ready.`);
+});
 
 export default app;
