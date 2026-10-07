@@ -58,6 +58,3 @@ export default function App() {
     </AppProvider>
   );
 }
-
-  return null;
-}
