@@ -78,3 +78,6 @@ is made or implied by this tool. All final determinations are
 made by an authorized human reviewer.
 ─────────────────────────────────────────`;
 }
+
+  return "";
+}
