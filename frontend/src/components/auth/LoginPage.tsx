@@ -347,3 +347,6 @@ export const LoginPage: React.FC = () => {
     </div>
   );
 };
+
+  return null;
+};
