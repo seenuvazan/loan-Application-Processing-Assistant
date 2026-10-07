@@ -645,3 +645,5 @@ export const EXPECTED_VALIDATIONS = apps.map(a => ({
 }));
 
 seedDatabase();
+
+];
