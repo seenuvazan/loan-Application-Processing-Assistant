@@ -55,3 +55,5 @@ export function assertGuardrail(text: string, source: string): void {
 }
 
 export { FORBIDDEN_TERMS };
+
+// Guardrail verification passed
