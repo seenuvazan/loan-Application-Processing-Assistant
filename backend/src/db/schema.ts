@@ -50,4 +50,21 @@ export function initSchema() {
       FOREIGN KEY (applicationId) REFERENCES applications(id) ON DELETE CASCADE
     );
 
-    
+    CREATE TABLE IF NOT EXISTS signoffs (
+      id TEXT PRIMARY KEY,
+      applicationId TEXT NOT NULL,
+      reviewerName TEXT NOT NULL,
+      reviewerRole TEXT NOT NULL,
+      outcome TEXT NOT NULL,
+      comment TEXT,
+      timestamp TEXT NOT NULL,
+      FOREIGN KEY (applicationId) REFERENCES applications(id) ON DELETE CASCADE
+    );
+
+    CREATE TABLE IF NOT EXISTS rule_config (
+      key TEXT PRIMARY KEY,
+      value TEXT NOT NULL,
+      updatedAt TEXT NOT NULL
+    );
+  `);
+}
