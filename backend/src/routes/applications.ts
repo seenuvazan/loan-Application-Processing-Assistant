@@ -42,5 +42,35 @@ router.post('/', (req: Request, res: Response) => {
 });
 
 // PUT /api/applications/:id
+router.put('/:id', (req: Request, res: Response) => {
+  const body = req.body;
+  const now = new Date().toISOString();
+
+  const existing = db.prepare('SELECT id FROM applications WHERE id = ?').get(req.params.id);
+  if (!existing) return res.status(404).json({ error: 'Application not found' });
+
+  db.prepare(`
+    UPDATE applications SET
+      applicantName = ?, requestedAmount = ?, loanPurpose = ?, employmentType = ?,
+      declaredEmployer = ?, declaredMonthlyIncome = ?, applicationDate = ?, employmentStartDate = ?,
+      contactEmail = ?, contactPhone = ?, maskedAccountNumber = ?, applicantNotes = ?, updatedAt = ?
+    WHERE id = ?
+  `).run(
+    body.applicantName || null, body.requestedAmount || null, body.loanPurpose || null,
+    body.employmentType || null, body.declaredEmployer || null, body.declaredMonthlyIncome || null,
+    body.applicationDate || null, body.employmentStartDate || null, body.contactEmail || null,
+    body.contactPhone || null, body.maskedAccountNumber || null, body.applicantNotes || null,
+    now, req.params.id
+  );
+
+  const updated = db.prepare('SELECT * FROM applications WHERE id = ?').get(req.params.id);
+  res.json(updated);
+});
+
+// DELETE /api/applications/:id
+router.delete('/:id', (req: Request, res: Response) => {
+  db.prepare('DELETE FROM applications WHERE id = ?').run(req.params.id);
+  res.json({ success: true });
+});
 
 export default router;
