@@ -158,3 +158,25 @@ Open [http://localhost:5173/](http://localhost:5173/) in your web browser.
    - Click case **`APP-IND-1001`**: Observe 100% completeness and 0 findings for a compliant salaried file.
    - Click case **`APP-IND-1007`**: Observe the **Inconsistency finding** (`PAN_NAME_MISMATCH`) highlighting that the application name differs from the name on the PAN document.
 2. **Step 2: Live Re-Validation & Data Correction**
+   - In **`APP-IND-1007`**, switch to the **Application Data** tab.
+   - Update the applicant name to match `"Rajesh V. Sharma"` (or vice-versa). Notice the finding clears instantly in real time and the progress bar increases!
+3. **Step 3: Multi-Lingual Customer Follow-Up Draft**
+   - Click case **`APP-IND-1002`** (Missing PAN document) or **`APP-IND-1022`** (Missing bank statement & income mismatch).
+   - Go to the **Customer Follow-Up** tab. Toggle between **English**, **हिन्दी (Hindi)**, and **தமிழ் (Tamil)** to demonstrate localized communication.
+   - Click **Copy to Clipboard** or **Mark Follow-Up Sent**.
+4. **Step 4: Enforce Four-Eyes Maker-Checker Policy**
+   - Ensure current user is **Rajesh Kumar (L1 Intake Officer)** in the top header.
+   - On any draft case, go to **Maker-Checker Sign-Off** and click **Submit for Verification**. The case is now pending verification by maker Rajesh Kumar.
+   - Click **Verify Intake (Pass)**: Notice it is disabled with a prominent **Four-Eyes Enforcement banner**.
+   - Use the header user switcher to switch to **Priya Sharma (L2 Verifier)**. Click **Verify Intake (Pass)**: The verification passes successfully!
+   - Click **Hand Off to Underwriting** to show smooth operational hand-off.
+5. **Step 5: View Validation Evidence & Guidance Mode**
+   - Click the **Validation Evidence** tab in the top header: View the automated benchmark table comparing actual vs expected findings for all 25 synthetic cases (100% Match Rate) and click **Export Evidence (CSV)**.
+   - Click **Guidance Mode**: Explore the customer loan category mapping and illustrative FOIR affordability simulation under strict non-decision guardrails.
+
+---
+
+## 🏛️ Credit Policy & Regulatory Disclaimer
+
+- **Scope Limits**: This application functions solely as an intake and pre-underwriting verification assistant. It does not perform credit scoring, risk grading, or automated loan underwriting.
+- **Policy Sourcing**: Validation thresholds (such as 90-day document freshness and 10% income tolerance) are illustrative defaults and must be aligned with the bank's sanctioned credit policy, internal KYC guidelines, and current Master Directions issued by the **Reserve Bank of India (RBI)**.
