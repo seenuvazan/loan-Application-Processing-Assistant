@@ -70,3 +70,5 @@ app.listen(PORT, () => {
 });
 
 export default app;
+
+// Backend server configured
