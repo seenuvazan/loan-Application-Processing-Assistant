@@ -124,3 +124,6 @@ export const OperationsSummary: React.FC<Props> = ({ application, documents, val
     </div>
   );
 };
+
+  return null;
+};
