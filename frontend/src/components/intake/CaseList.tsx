@@ -229,3 +229,6 @@ export const CaseList: React.FC = () => {
     </aside>
   );
 };
+
+  return null;
+};
