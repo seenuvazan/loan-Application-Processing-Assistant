@@ -58,5 +58,3 @@ export function generateFollowUp(applicationId: string, applicantName: string | 
 
   return lines.join('\n');
 }
-
-// Multilingual templates verified
