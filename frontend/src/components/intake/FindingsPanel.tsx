@@ -263,3 +263,6 @@ export const FindingsPanel: React.FC<Props> = ({ validation }) => {
     </div>
   );
 };
+
+  return null;
+};
