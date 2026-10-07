@@ -113,3 +113,36 @@ export interface UserProfile {
   email?: string;
 }
 
+export interface AuditLogEntry {
+  id: string;
+  applicationId: string;
+  timestamp: string;
+  userId: string;
+  userName: string;
+  userRole: UserRole;
+  action: string;
+  details: string;
+  previousStatus?: CaseStatus;
+  newStatus?: CaseStatus;
+}
+
+export interface ExpectedValidation {
+  applicationId: string;
+  expectedFindingCount: number;
+  expectedRuleIds: string[];
+  description: string;
+}
+
+export interface TestEvidenceResult {
+  applicationId: string;
+  applicantName: string;
+  description: string;
+  expectedRuleIds: string[];
+  actualRuleIds: string[];
+  expectedCount: number;
+  actualCount: number;
+  matched: boolean;
+  missingRuleIds: string[];
+  unexpectedRuleIds: string[];
+  actualFindings: Finding[];
+}
