@@ -359,6 +359,3 @@ export const CustomerUploadPortal: React.FC = () => {
     </div>
   );
 };
-
-  return null;
-};
