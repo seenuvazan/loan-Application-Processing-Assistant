@@ -320,3 +320,6 @@ export const ValidationEvidence: React.FC = () => {
     </div>
   );
 };
+
+  return null;
+};
