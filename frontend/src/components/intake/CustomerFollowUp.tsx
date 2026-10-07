@@ -167,3 +167,6 @@ export const CustomerFollowUp: React.FC<Props> = ({ application, validation }) =
     </div>
   );
 };
+
+  return null;
+};
