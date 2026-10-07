@@ -639,3 +639,9 @@ function seedDatabase() {
 }
 
 // Export expected validations for test lab
+export const EXPECTED_VALIDATIONS = apps.map(a => ({
+  applicationId: a.id,
+  expectedRuleIds: a.expectedRuleIds,
+}));
+
+seedDatabase();
