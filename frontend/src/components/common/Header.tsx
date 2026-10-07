@@ -241,3 +241,5 @@ export const Header: React.FC = () => {
     </>
   );
 };
+
+// Header controls verified
