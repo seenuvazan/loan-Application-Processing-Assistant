@@ -415,3 +415,6 @@ export const DocumentChecklist: React.FC<Props> = ({ application, documents, fin
     </div>
   );
 };
+
+  return null;
+};
