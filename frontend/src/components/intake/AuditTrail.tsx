@@ -98,6 +98,3 @@ export const AuditTrail: React.FC<Props> = ({ applicationId }) => {
     </div>
   );
 };
-
-  return null;
-};
