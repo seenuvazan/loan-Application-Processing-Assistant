@@ -350,3 +350,6 @@ export const WorkflowSignOff: React.FC<Props> = ({ application, validation }) =>
     </div>
   );
 };
+
+  return null;
+};
