@@ -354,6 +354,3 @@ export const ApplicationDataForm: React.FC<Props> = ({ application, findings }) 
     </div>
   );
 };
-
-  return null;
-};
