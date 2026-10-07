@@ -252,3 +252,6 @@ export const CaseDetail: React.FC = () => {
     </div>
   );
 };
+
+  return null;
+};
